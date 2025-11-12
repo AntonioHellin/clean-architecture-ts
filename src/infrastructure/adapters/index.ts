@@ -3,7 +3,7 @@
  *
  * This file provides a centralized export point for all infrastructure adapters.
  * Benefits:
- * - Cleaner imports: import { EmailAdapter } from '@infraestructure/adapters'
+ * - Cleaner imports: import { EmailAdapter } from '@infrastructure/adapters'
  * - Single source of truth for available adapters
  * - Easier refactoring and reorganization
  *

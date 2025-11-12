@@ -1,5 +1,5 @@
-import { OrderRepository } from '../../application/ports/OrderRepository';
-import { Order } from '../../application/domain/Order';
+import { OrderRepository } from '@application/ports/OrderRepository';
+import { Order } from '@domain/entities/Order';
 
 export class InMemoryOrderRepository implements OrderRepository {
     private store = new Map<string, Order>();

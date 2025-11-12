@@ -1,4 +1,4 @@
-import { InMemoryOrderRepository } from "@infraestructure/InMemoryOrderRepository";
+import { InMemoryOrderRepository } from "@infrastructure/persistence/InMemoryOrderRepository";
 import { CreateOrder } from "@application/use-cases/CreateOrder";
 
 const repo = new InMemoryOrderRepository();
