@@ -73,24 +73,27 @@ export function loadEnvironmentConfig(): EnvironmentConfig {
   // import * as dotenv from 'dotenv';
   // dotenv.config();
 
+  const nodeEnv = (process.env.NODE_ENV as NodeEnv) || "development";
+  const isProd = nodeEnv === "production";
+
   const config: EnvironmentConfig = {
     // Application
-    nodeEnv: (process.env.NODE_ENV as NodeEnv) || "development",
+    nodeEnv,
     port: parseInt(process.env.PORT || "3000", 10),
-    appName: process.env.APP_NAME || "clean-architecture-app",
+    appName: process.env.APP_NAME || "typescript-clean-starter",
 
     // Database
     database: {
       host: process.env.DB_HOST || "localhost",
       port: parseInt(process.env.DB_PORT || "5432", 10),
       name: process.env.DB_NAME || "clean_architecture_db",
-      user: process.env.DB_USER || "postgres",
-      password: process.env.DB_PASSWORD || "postgres",
+      user: process.env.DB_USER || (isProd ? "" : "postgres"),
+      password: process.env.DB_PASSWORD || (isProd ? "" : "postgres"),
     },
 
     // External Services
     email: {
-      apiKey: process.env.EMAIL_API_KEY || "test-api-key",
+      apiKey: process.env.EMAIL_API_KEY || (isProd ? "" : "test-api-key"),
       fromEmail: process.env.EMAIL_FROM || "noreply@example.com",
     },
   };

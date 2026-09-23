@@ -36,12 +36,16 @@ export interface DatabaseConfig {
  * TODO: Use a validation library like zod or joi to validate config
  */
 export function getDatabaseConfig(): DatabaseConfig {
+  const isProd = process.env.NODE_ENV === "production";
+  const defaultPassword = isProd ? "" : "postgres";
+  const defaultUser = isProd ? "" : "postgres";
+
   return {
     host: process.env.DB_HOST || "localhost",
     port: parseInt(process.env.DB_PORT || "5432", 10),
     database: process.env.DB_NAME || "clean_architecture_db",
-    username: process.env.DB_USER || "postgres",
-    password: process.env.DB_PASSWORD || "postgres",
+    username: process.env.DB_USER || defaultUser,
+    password: process.env.DB_PASSWORD || defaultPassword,
   };
 }
 
