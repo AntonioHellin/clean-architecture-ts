@@ -190,7 +190,3 @@ npm run test:watch
 ```
 
 ---
-
-## License
-
-This project is licensed under the [MIT License](LICENSE) or UNLICENSED for proprietary use as specified in `package.json`.
